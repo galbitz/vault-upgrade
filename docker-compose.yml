@@ -1,0 +1,30 @@
+---
+version: "3"
+services:
+  vault1:
+    container_name: vault1
+    image: hashicorp/vault
+    volumes:
+      - ./vault1/logs:/vault/logs
+      - ./vault1/file:/vault/file
+      - ./vault1/config:/vault/config
+    cap_add:
+      - IPC_LOCK
+    ports:
+      - 8210:8200
+      - 8211:8201
+    command: ["server"]
+  vault2:
+    container_name: vault2
+    image: hashicorp/vault
+    volumes:
+      - ./vault2/logs:/vault/logs
+      - ./vault2/file:/vault/file
+      - ./vault2/config:/vault/config
+    cap_add:
+      - IPC_LOCK
+    ports:
+      - 8220:8200
+      - 8221:8201
+    command: ["server"]
+
