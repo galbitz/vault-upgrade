@@ -14,6 +14,8 @@ services:
       - 8210:8200
       - 8211:8201
     command: ["server"]
+    environment:
+      - VAULT_ADDR=http://127.0.0.1:8200
   vault2:
     container_name: vault2
     image: hashicorp/vault:1.12.3
@@ -27,4 +29,6 @@ services:
       - 8220:8200
       - 8221:8201
     command: ["server"]
+    environment:
+      - VAULT_ADDR=http://127.0.0.1:8200
 
