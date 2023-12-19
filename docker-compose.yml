@@ -3,10 +3,10 @@ version: "3"
 services:
   vault1:
     container_name: vault1
-    image: hashicorp/vault
+    image: hashicorp/vault:1.12.3
     volumes:
       - ./vault1/logs:/vault/logs
-      - ./vault1/file:/vault/file
+      - ./vault1/storage:/vault/storage
       - ./vault1/config:/vault/config
     cap_add:
       - IPC_LOCK
@@ -16,10 +16,10 @@ services:
     command: ["server"]
   vault2:
     container_name: vault2
-    image: hashicorp/vault
+    image: hashicorp/vault:1.12.3
     volumes:
       - ./vault2/logs:/vault/logs
-      - ./vault2/file:/vault/file
+      - ./vault2/storage:/vault/storage
       - ./vault2/config:/vault/config
     cap_add:
       - IPC_LOCK
